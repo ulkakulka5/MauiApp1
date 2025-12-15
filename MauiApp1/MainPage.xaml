@@ -1,4 +1,4 @@
-﻿<ContentPage
+<ContentPage
     x:Class="MauiApp1.MainPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
@@ -9,20 +9,24 @@
         <Label Text="Current Hydration"
                FontSize="26"
                FontAttributes="Bold"
-               HorizontalOptions="Center" />
+               HorizontalOptions="Center"
+               TextColor="#132898"/>
 
         <VerticalStackLayout Grid.Row="1"
                              Spacing="12"
                              HorizontalOptions="Center"
                              VerticalOptions="Center">
 
-            <Label Text="1,300 ml"
+            <Label Text="0 ml"
                    FontSize="40"
-                   FontAttributes="Bold" />
+                   FontAttributes="Bold" 
+                   TextColor="#132898"
+                   HorizontalOptions="Center"/>
 
-            <Label Text="remaining 700 ml"
+            <Label Text="remaining 2000 ml"
                    FontSize="16"
-                   TextColor="#777" />
+                   TextColor="#132898" 
+                   HorizontalOptions="Center"/>
 
           
             <Border HeightRequest="260"
@@ -36,27 +40,23 @@
                     <Grid VerticalOptions="End">
                         <BoxView Color="#4DA3FF"
                                  Opacity="0.85"
-                                 HeightRequest="180" />
+                                 HeightRequest="0" />
                     </Grid>
 
-                    <Label Text="70%"
+                    <Label Text="0%"
                            FontSize="36"
                            FontAttributes="Bold"
                            HorizontalOptions="Center"
-                           VerticalOptions="Center" />
+                           VerticalOptions="Center"
+                           TextColor="Grey"/>
                 </Grid>
 
             </Border>
+            <ImageButton Source="addbtn.png" x:Name="add" Clicked="add_Clicked" Margin="0,50,0,0"></ImageButton>
         </VerticalStackLayout>
 
-        <Button Grid.Row="2"
-                Text="Add"
-                FontSize="20"
-                CornerRadius="24"
-                HeightRequest="56"
-                BackgroundColor="#4DA3FF"
-                TextColor="White"
-                Clicked="OnAddClicked" />
+        
+        
 
     </Grid>
 </ContentPage>
