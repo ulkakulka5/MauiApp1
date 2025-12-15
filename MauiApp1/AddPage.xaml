@@ -5,97 +5,33 @@
     BackgroundColor="#F5F5F5">
 
     <ScrollView>
-        <VerticalStackLayout Padding="24" Spacing="20">
+        <VerticalStackLayout Padding="24" Spacing="20" VerticalOptions="Center">
 
             <Label Text="Add"
                    FontSize="28"
                    FontAttributes="Bold"
-                   HorizontalOptions="Center" />
-
-            <Grid ColumnDefinitions="*,*"
-                  RowDefinitions="Auto,Auto,Auto"
-                  ColumnSpacing="16"
-                  RowSpacing="16">
-
-                
-                <Border Background="#4DA3FF"
-                        StrokeThickness="0"
-                        StrokeShape="RoundRectangle 16"
-                        HeightRequest="90">
-                    <Grid>
-                        <Label Text="250 ml"
-                               FontSize="20"
-                               TextColor="White"
-                               HorizontalOptions="Center"
-                               VerticalOptions="Center" />
-                    </Grid>
-                </Border>
-
-                
-                <Border Background="#FF7BA3"
-                        StrokeThickness="0"
-                        StrokeShape="RoundRectangle 16"
-                        HeightRequest="90"
-                        Grid.Column="1">
-                    <Grid>
-                        <Label Text="500 ml"
-                               FontSize="20"
-                               TextColor="White"
-                               HorizontalOptions="Center"
-                               VerticalOptions="Center" />
-                    </Grid>
-                </Border>
-
-               
-                <Border Background="#FFD966"
-                        StrokeThickness="0"
-                        StrokeShape="RoundRectangle 16"
-                        HeightRequest="90"
-                        Grid.Row="1">
-                    <Grid>
-                        <Label Text="180 ml"
-                               FontSize="20"
-                               TextColor="Black"
-                               HorizontalOptions="Center"
-                               VerticalOptions="Center" />
-                    </Grid>
-                </Border>
-
-             
-                <Border Background="#B28DFF"
-                        StrokeThickness="0"
-                        StrokeShape="RoundRectangle 16"
-                        HeightRequest="90"
-                        Grid.Row="1"
-                        Grid.Column="1">
-                    <Grid>
-                        <Label Text="250 ml"
-                               FontSize="20"
-                               TextColor="White"
-                               HorizontalOptions="Center"
-                               VerticalOptions="Center" />
-                    </Grid>
-                </Border>
-
-            
-                <Border Background="#55C97D"
-                        StrokeThickness="0"
-                        StrokeShape="RoundRectangle 16"
-                        HeightRequest="90"
-                        Grid.Row="2"
-                        Grid.ColumnSpan="2">
-                    <Grid>
-                        <Label Text="Custom"
-                               FontSize="20"
-                               TextColor="White"
-                               HorizontalOptions="Center"
-                               VerticalOptions="Center" />
-                    </Grid>
-                </Border>
-
-            </Grid>
+                   HorizontalOptions="Center" 
+                   TextColor="#132898"/>
 
            
+                <HorizontalStackLayout HorizontalOptions="Center">
+                <ImageButton Source="x250btn.png" x:Name="x250" Clicked="x250_Clicked"></ImageButton>
+
+
+                        <ImageButton Source="x500btn.png" x:Name="x500" Clicked="x500_Clicked"></ImageButton>
+                </HorizontalStackLayout>
+
+
+            <HorizontalStackLayout HorizontalOptions="Center">
+                    <ImageButton Source="x180btn.png" x:Name="x180" Clicked="x180_Clicked"></ImageButton>
+
+
+                    <ImageButton Source="custombtn.png" x:Name="custom" Clicked="custom_Clicked"></ImageButton>
+                </HorizontalStackLayout>
+
+                <ImageButton Source="okbtn.png" x:Name="ok" Clicked="ok_Clicked"></ImageButton>
+            
+
 
         </VerticalStackLayout>
     </ScrollView>
