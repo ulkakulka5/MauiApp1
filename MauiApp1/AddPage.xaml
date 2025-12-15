@@ -15,21 +15,21 @@
 
            
                 <HorizontalStackLayout HorizontalOptions="Center">
-                <ImageButton Source="x250btn.png" x:Name="x250" Clicked="x250_Clicked"></ImageButton>
+                <ImageButton Source="x250btn.png" x:Name="x250" Clicked="x250_Clicked" Background="Transparent"></ImageButton>
 
 
-                        <ImageButton Source="x500btn.png" x:Name="x500" Clicked="x500_Clicked"></ImageButton>
+                <ImageButton Source="x500btn.png" x:Name="x500" Clicked="x500_Clicked" Background="Transparent"></ImageButton>
                 </HorizontalStackLayout>
 
 
             <HorizontalStackLayout HorizontalOptions="Center">
-                    <ImageButton Source="x180btn.png" x:Name="x180" Clicked="x180_Clicked"></ImageButton>
+                <ImageButton Source="x180btn.png" x:Name="x180" Clicked="x180_Clicked" Background="Transparent"></ImageButton>
 
 
-                    <ImageButton Source="custombtn.png" x:Name="custom" Clicked="custom_Clicked"></ImageButton>
+                <ImageButton Source="custombtn.png" x:Name="custom" Clicked="custom_Clicked" Background="Transparent"></ImageButton>
                 </HorizontalStackLayout>
 
-                <ImageButton Source="okbtn.png" x:Name="ok" Clicked="ok_Clicked"></ImageButton>
+            <ImageButton Source="okbtn.png" x:Name="ok" Clicked="ok_Clicked" Background="Transparent"></ImageButton>
             
 
 

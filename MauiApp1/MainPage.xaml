@@ -2,7 +2,9 @@
     x:Class="MauiApp1.MainPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    BackgroundColor="#F5F5F5">
+    BackgroundColor="#F5F5F5"
+    HeightRequest="800"
+    WidthRequest="450">
 
     <Grid Padding="24" RowDefinitions="Auto,*,Auto">
 
@@ -18,18 +20,21 @@
                              VerticalOptions="Center">
 
             <Label Text="0 ml"
+                   x:Name="drunkLabel"
                    FontSize="40"
                    FontAttributes="Bold" 
                    TextColor="#132898"
                    HorizontalOptions="Center"/>
 
             <Label Text="remaining 2000 ml"
+                   x:Name="remainingLabel"
                    FontSize="16"
                    TextColor="#132898" 
                    HorizontalOptions="Center"/>
 
           
             <Border HeightRequest="260"
+                   
                     WidthRequest="260"
                     Background="#E8F3FF"
                     StrokeThickness="0"
@@ -39,11 +44,13 @@
 
                     <Grid VerticalOptions="End">
                         <BoxView Color="#4DA3FF"
-                                 Opacity="0.85"
+                                 Opacity="0.85" 
+                                 x:Name="waterFill"
                                  HeightRequest="0" />
                     </Grid>
 
                     <Label Text="0%"
+                           x:Name="percentLabel"
                            FontSize="36"
                            FontAttributes="Bold"
                            HorizontalOptions="Center"
@@ -52,11 +59,23 @@
                 </Grid>
 
             </Border>
-            <ImageButton Source="addbtn.png" x:Name="add" Clicked="add_Clicked" Margin="0,50,0,0"></ImageButton>
+            <ImageButton Source="addbtn.png" x:Name="add" Clicked="add_Clicked" Margin="0,50,0,0" Background="Transparent"></ImageButton>
         </VerticalStackLayout>
 
-        
-        
+        <Label Text="reset"
+       FontSize="12"
+       TextColor="Gray"
+       Opacity="0.6"
+       HorizontalOptions="End"
+       VerticalOptions="End"
+       Margin="0,0,4,4">
+
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Tapped="Reset_Tapped"/>
+            </Label.GestureRecognizers>
+
+        </Label>
+
 
     </Grid>
 </ContentPage>
