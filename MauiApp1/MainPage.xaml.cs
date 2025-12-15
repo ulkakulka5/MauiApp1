@@ -1,4 +1,4 @@
-﻿namespace MauiApp1;
+namespace MauiApp1;
 
 public partial class MainPage : ContentPage
 {
@@ -7,9 +7,10 @@ public partial class MainPage : ContentPage
         InitializeComponent();
     }
 
-    private async void OnAddClicked(object sender, EventArgs e)
+   
+
+    private async void add_Clicked(object sender, EventArgs e)
     {
         await Navigation.PushAsync(new AddPage());
     }
-
 }
