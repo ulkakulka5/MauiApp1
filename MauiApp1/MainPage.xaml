@@ -7,10 +7,7 @@
     WidthRequest="450">
 
     <Grid Padding="24" RowDefinitions="Auto,*,Auto">
-        <Label x:Name="dateLabel"
-       FontSize="14"
-       TextColor="Gray"
-       HorizontalOptions="End"/>
+       
 
         <Label Text="Current Hydration"
                FontSize="26"
