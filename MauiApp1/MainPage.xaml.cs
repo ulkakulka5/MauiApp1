@@ -1,4 +1,4 @@
-﻿using Microsoft.Maui.Controls;
+using Microsoft.Maui.Controls;
 using Plugin.LocalNotification;
 using System;
 
@@ -10,6 +10,7 @@ public partial class MainPage : ContentPage
 
     public MainPage()
     {
+
         InitializeComponent();
         UpdateUI();
         ScheduleReminder(); 
@@ -25,7 +26,7 @@ public partial class MainPage : ContentPage
     {
         int drunk = HydrationData.drunk_ml;
         int remaining = HydrationData.goal_ml - drunk;
-
+        bool goal_ = HydrationData.goal;
         if (remaining < 0) remaining = 0;
 
         double percent = (double)drunk / HydrationData.goal_ml * 100;
@@ -35,8 +36,12 @@ public partial class MainPage : ContentPage
         remainingLabel.Text = $"remaining {remaining} ml";
         percentLabel.Text = $"{(int)percent}%";
 
-        waterFill.HeightRequest = circleHeight * (percent / 100);
-        dateLabel.Text = DateTime.Now.ToString("dd.MM.yyyy");
+      
+
+        if(drunk>=2000)
+        {
+            goal_ = true;
+        }
     }
 
     private async void Reset_Tapped(object sender, EventArgs e)
@@ -50,26 +55,42 @@ public partial class MainPage : ContentPage
         if (!confirm) return;
 
         HydrationData.drunk_ml = 0;
+        HydrationData.goal = false;
         UpdateUI();
     }
 
     private async void add_Clicked(object sender, EventArgs e)
     {
         await Navigation.PushAsync(new AddPage());
+        ScheduleReminder();
     }
 
-    void ScheduleReminder()
+    async void ScheduleReminder()
     {
-        var reminderTime = DateTime.Now.AddMinutes(1);
+        if (await LocalNotificationCenter.Current.AreNotificationsEnabled() == false)
+        {
+            await LocalNotificationCenter.Current.RequestNotificationPermission();
+        }
 
-        var notification = new NotificationRequest
+        /*var notification = new NotificationRequest  
         {
             NotificationId = 1001,
             Title = "Pamiętaj o nawodnieniu",
             Description = $"Nie zapomnij wypić wody!",
-            Schedule = { NotifyTime = reminderTime }
-        };
-
-        LocalNotificationCenter.Current.Show(notification);
+            Schedule = new NotificationRequestSchedule{ NotifyTime = DateTime.Now.AddMinutes(1) }
+        };*/
+        var hour = DateTime.Now.Hour;
+        if (hour==11 && HydrationData.goal==false)
+        {
+            var notification = new NotificationRequest
+            {
+                NotificationId = 1001,
+                Title = "Pamiętaj o nawodnieniu",
+                Description = $"Nie zapomnij wypić wody!",
+                
+            };
+            LocalNotificationCenter.Current.Show(notification);
+        }
+        //LocalNotificationCenter.Current.Show(notification);
     }
 }
